@@ -117,10 +117,19 @@ When a user is attempting to guess the right answer, this event gets triggered. 
 **User left**
 This event gets performed when a user leaves. It makes sure a message is sent that a user has left (with their username).
 
+## My unique feature
+So I got the chance to develop my own chat app. What I did is, forked my team repository and I continued where I left of with my own unique feature.
+
+### Features
+  What I wanted to implement are:
+  - See who is online
+  - That someone is typing
+  - The Username in another page
+  - 
+
 ## ⚖ License
 [MIT](https://github.com/RainbowJM/real-time-web-2223/blob/main/LICENSE) 
 
 ## ✍ Author
-- Jevona Magdalena
-- Keïsha Alexande
-- Laiba Choudhry
+- Keïsha Alexander
+
