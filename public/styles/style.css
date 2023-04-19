@@ -68,28 +68,31 @@ main section:nth-child(3) form {
 main section:nth-child(3) ul {
     display: flex;
     flex-direction: column;
+    /* background-color: red; */
 }
 
 /*****************/
 /* SPEECH BUBBLE */
 /*****************/
-.talk-bubble {
+main section:nth-child(3) ul li.talk-bubble {
     margin: 40px;
     display: inline-block;
     position: relative;
-    width: 200px;
-    height: auto;
+    width: fit-content;
+    max-width: 30%;
+    height: fit-content;
     background-color: var(--light-pink);
     padding: 1em;
-    box-shadow: 2px 4px rgba(0 0 0/ 0.3)
+    box-shadow: 2px 4px rgba(0 0 0/ 0.3);
+    word-wrap: break-word;
 }
 
-.border {
+main section:nth-child(3) ul li.border {
     border-radius: 1em;
 
 }
 
-.tri-right.border.btm-left-in:before {
+main section:nth-child(3) ul li.tri-right.border.btm-left-in:before {
     content: ' ';
     position: absolute;
     width: 0;
@@ -101,7 +104,7 @@ main section:nth-child(3) ul {
 
 }
 
-.tri-right.btm-left-in:after {
+main section:nth-child(3) ul li.tri-right.btm-left-in:after {
     content: ' ';
     position: absolute;
     width: 0;
@@ -113,6 +116,10 @@ main section:nth-child(3) ul {
     border: 12px solid;
     border-color: var(--light-pink) transparent transparent var(--light-pink);
     filter: drop-shadow(2px 4px rgba(0 0 0/0.3))
+}
+main section:nth-child(3) ul li.message {
+    align-self: end;
+    background-color: var(--white);
 }
 
 /****************/

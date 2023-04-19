@@ -24,10 +24,17 @@ submit.addEventListener('click', event => {
 socket.on('message', message => {
     const li_element = document.createElement('li');
     li_element.textContent = ` ${message.username} : ${message.message} `;
-    // li_element.classList.add('talk-bubble',' tri-right' ,'border' ,'round btm-left-in');
+    
+  
     li_element.setAttribute('class', 'talk-bubble tri-right border round btm-left-in');
     messages.appendChild(li_element);
     messages.scrollTop = messages.scrollHeight;
+  
+    if (message.username === usernameInput.value) {
+        li_element.classList.add('message');
+    }
+
+
 })
 
 function insertDate() {
