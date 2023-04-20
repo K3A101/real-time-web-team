@@ -138,12 +138,12 @@ main section:nth-child(3) ul li.tri-right.btm-left-in:after {
     position: absolute;
     width: 0;
     height: 0;
-    left: 38px;
+    left: 10px;
     right: auto;
     top: auto;
     bottom: -20px;
     border: 12px solid;
-    border-color: var(--light-pink) transparent transparent var(--light-pink);
+    border-color: var(--light-pink)  var(--light-pink) transparent transparent;
     filter: drop-shadow(2px 4px rgba(0 0 0/0.3))
 }
 
@@ -164,6 +164,9 @@ main section:nth-child(3) ul li span {
     font-weight: 700;
 }
 
+main section:nth-child(3) ul li span::first-letter {
+    text-transform: uppercase;
+}
 /* User is typing */
 main section:nth-child(3).focus form::after {
     content: 'someone is typing...';
