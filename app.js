@@ -22,17 +22,22 @@ io.on('connection',(socket)=> {
     // Each socket in the server fires an event called 'chat message' when the client emits a 'chat message' event
     // Als je op de verstuur knop klikt, dan wordt de chat message event gestuurd
     // De message parameter is de functie met in de chat message event de message-input in de client side
-    socket.on('chat message', (message)=>{
-        console.log('message: ' + message);
+    socket.on('chat message', (chat)=>{
+        console.log('message: ' + chat);
         //Met de io.emit wordt de message aan alle gebruikers/client gestuurd die verbonden zijn aan de server.
         //emit event from the server to all users
-        io.emit('chat message', message)
+        io.emit('chat message', chat)
     })
    
     // Each socket in the server fires an disconnect event when the client is disconnected
     // Als je de pagina met de realtime chat verlaat, dan wordt de socket disconnected
     socket.on('disconnect', () => {
         console.log('user disconnected')
+    });
+
+    socket.on('focus', (hasFocus) => {
+    //    sends a message to all connected clients except the one that initiated the event
+        socket.broadcast.emit('focus', hasFocus);
     });
 })
 

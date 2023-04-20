@@ -9,7 +9,7 @@
     --blue-pink-gradient: linear-gradient(175.66deg, #26B3C7 3.53%, #F19DFF 78.23%);
     --white: white;
     --low-opacity-pink: #F0C3F8;
-    --light-pink: #FCF1FB;
+    --light-pink: #f7cdf1;
     --low-opacity-white: rgba(255, 255, 255, 0.53);
 
     /*User colors*/
@@ -23,10 +23,11 @@
 html {
     width: 100%;
 }
+
 body {
     background-image: var(--blue-pink-gradient);
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     font-family: var(--text);
     font-weight: 400;
@@ -51,13 +52,21 @@ li {
 }
 
 main {
-    
+
     margin: .5em;
+    width: 100%;
+    height: 80vh;
 
 }
+
 /********/
 /* FORM */
 /********/
+main section:nth-child(3) {
+    width: 100%;
+    height: 93%;
+}
+
 main section:nth-child(3) form {
     position: absolute;
     bottom: 0;
@@ -68,7 +77,26 @@ main section:nth-child(3) form {
 main section:nth-child(3) ul {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 95%;
+    height: 100%;
     /* background-color: red; */
+}
+
+main section:nth-child(3) ul::-webkit-scrollbar {
+    border-radius: 5em;
+    width: .5em;
+
+    display: none;
+}
+
+/*************/
+/* HIDE FORM */
+/*************/
+main section:nth-child(3).hidden,
+main section:nth-child(2).hidden {
+    display: none;
 }
 
 /*****************/
@@ -79,6 +107,7 @@ main section:nth-child(3) ul li.talk-bubble {
     display: inline-block;
     position: relative;
     width: fit-content;
+    min-width: 10%;
     max-width: 30%;
     height: fit-content;
     background-color: var(--light-pink);
@@ -117,10 +146,35 @@ main section:nth-child(3) ul li.tri-right.btm-left-in:after {
     border-color: var(--light-pink) transparent transparent var(--light-pink);
     filter: drop-shadow(2px 4px rgba(0 0 0/0.3))
 }
-main section:nth-child(3) ul li.message {
+
+main section:nth-child(3) ul li.own-message {
     align-self: end;
     background-color: var(--white);
 }
+
+/* Het Puntje */
+main section:nth-child(3) ul li.own-message.tri-right.btm-left-in:after {
+    border-color: var(--white) transparent transparent var(--white);
+}
+
+/* Username gedeelte boven het bericht */
+main section:nth-child(3) ul li span {
+    display: block;
+    padding-bottom: .5em;
+    font-weight: 700;
+}
+
+/* User is typing */
+main section:nth-child(3).focus form::after {
+    content: 'someone is typing...';
+    position: absolute;
+    top: -5em;
+    background-color: var(--low-opacity-white);
+    padding: 1em 1.5em;
+    border-radius: 1em;
+
+}
+
 
 /****************/
 /* Time */
@@ -154,12 +208,13 @@ main section:nth-child(3) ul li.message {
 
 /*  submit button */
 #message-button {
-  width: 5em; 
-  border: none;
+    width: 5em;
+    border: none;
     border-radius: .5em;
     background-color: var(--low-opacity-pink);
     border: 2px solid var(--dark-blue);
 }
+
 /******************/
 /* RESPONSIVENESS */
 /******************/
