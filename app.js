@@ -15,23 +15,26 @@ app.set('view engine', 'ejs');
 let appRoutes = require('./routes/routes');
 app.use('/', appRoutes);
 
-io.on("connection", (socket) => {
+// Server Listen on the connection event for incomming sockets(web browser) and logged in the console
+io.on('connection',(socket)=> {
     console.log('user connected');
 
-    socket.on('message', (message) => {
-        // while (history.length > historySize) {
-        //   history.shift()
-        // }
-        // history.push(message)
-
-        io.emit('message', message)
+    // Each socket in the server fires an event called 'chat message' when the client emits a 'chat message' event
+    // Als je op de verstuur knop klikt, dan wordt de chat message event gestuurd
+    // De message parameter is de functie met in de chat message event de message-input in de client side
+    socket.on('chat message', (message)=>{
+        console.log('message: ' + message);
+        //Met de io.emit wordt de message aan alle gebruikers/client gestuurd die verbonden zijn aan de server.
+        //emit event from the server to all users
+        io.emit('chat message', message)
     })
-
-
+   
+    // Each socket in the server fires an disconnect event when the client is disconnected
+    // Als je de pagina met de realtime chat verlaat, dan wordt de socket disconnected
     socket.on('disconnect', () => {
         console.log('user disconnected')
-    })
-});
+    });
+})
 
 http.listen(port, () => {
     console.log(`Example app listening on  http://localhost:${port}`)

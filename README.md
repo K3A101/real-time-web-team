@@ -38,14 +38,14 @@ We hebben besloten om ons eerst te richten op het leren kennen van socket.io, om
 - Npm
 - Nodejs
 - Nadrukkelijk
-- Sjabloonmotor ejs
+- Template engine ejs
 - Socket.io
 
 ## ⚙️ Installatie
-Kloon opslagplaats
+Clone repository
 
 ```
-Git-kloon https://github.com/RainbowJM/real-time-web-2223.git
+Git clone https://github.com/RainbowJM/real-time-web-2223.git
 ```
 
 NVM installeren
